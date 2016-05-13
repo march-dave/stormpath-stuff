@@ -13,19 +13,19 @@ router.get('/', stormpath.getUser, function(req, res, next) {
 });
 
 
-// router.get('/modify', stormpath.loginRequired, (req, res) => {
-  
-//   req.user.customData.cupcakes = 'frosted';
+router.get('/modify', stormpath.loginRequired, (req, res) => {
 
-//   req.user.customData.save((err, customData) => {
-//     res.send(customData);
-//   });
+  req.user.customData.cupcakes = 'frosted';
 
-//   req.user.save((err, savedUser) => {
-//     if(err) return res.status(400).send(err);
-//     res.send(savedUser);
-//   });
+  req.user.customData.save((err, customData) => {
+    res.send(customData);
+  });
 
-// });
+  req.user.save((err, savedUser) => {
+    if(err) return res.status(400).send(err);
+    res.send(savedUser);
+  });
+
+});
 
 module.exports = router;
