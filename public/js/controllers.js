@@ -4,7 +4,6 @@ var app = angular.module('spApp');
 
 app.controller('profileCtrl', function($scope, $user, $timeout) {
 
-
   $scope.loading = true;
   // $scope.user = USER;
 
@@ -12,8 +11,6 @@ app.controller('profileCtrl', function($scope, $user, $timeout) {
   .then(user => {
     console.log('user', user);
     $scope.user = user;
-
-
   })
   .catch(err => {
     console.log('err', err);
@@ -33,11 +30,6 @@ app.controller('profileCtrl', function($scope, $user, $timeout) {
      lastname: $scope.user.surname
     //  favoriteColor: $scope.user.customData.favoriteColor
    };
-
-   console.log('$scope.editUser', $scope.editUser);
-
-
-
   }
 
   $scope.cancelEdit = () => {
